@@ -55,5 +55,5 @@ steps:
     WebAppName: 'nodes1122'
     packageForLinux: '$(build.artifactStagingDirectory)/*.zip'
     RuntimeStack: 'NODE|18-lts'
-    StartupCommand: 'npm start'
+    StartupCommand: 'cd dist/mongo-dbangular13 && npm start'
   displayName: 'Deploy to Azure WebApp'
