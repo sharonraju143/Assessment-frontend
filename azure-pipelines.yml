@@ -18,8 +18,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: |
-      dist/mongo-dbangular13/**
+    contents: 'dist/mongo-dbangular13/**'
     targetFolder: '$(build.artifactStagingDirectory)'
   displayName: 'Copy files to artifact staging directory'
 
@@ -38,18 +37,12 @@ steps:
     artifactName: 'drop'
   displayName: 'Publish build artifacts'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      pwd 
-      ls
-
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'appservice'
     appType: 'webAppLinux'
     appName: 'nodes1122'
-    package: '$(build.artifactStagingDirectory)/**/*.zip'
+    package: '$(build.artifactStagingDirectory)/$(Build.BuildId).zip'
     runtimeStack: 'NODE|18-lts'
     startUpCommand: 'npm start'
+  displayName: 'Deploy to Azure Web App'
