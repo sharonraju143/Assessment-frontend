@@ -43,9 +43,3 @@ steps:
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'NODE|18-lts'
     StartupCommand: 'pm2 start server.js'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: '$(build.artifactStagingDirectory)'
-    artifactName: 'drop'
-  displayName: 'Publish build artifacts'
