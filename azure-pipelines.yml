@@ -18,7 +18,9 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: 'dist/mongo-dbangular13/**'
+    contents: |
+      dist/mongo-dbangular13/**
+      package.json
     targetFolder: '$(build.artifactStagingDirectory)'
   displayName: 'Copy files to artifact staging directory'
 
