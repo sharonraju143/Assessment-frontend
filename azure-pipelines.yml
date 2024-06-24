@@ -42,4 +42,4 @@ steps:
     WebAppName: 'nodes1122'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'NODE|18-lts'
-    StartupCommand: 'pm2 start server.js'
+    StartupCommand: 'npm start'
