@@ -26,6 +26,15 @@ steps:
     contents: '**'
     targetFolder: '$(build.artifactStagingDirectory)'
   displayName: 'Copy files to artifact staging directory'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'appservice'
+    appType: 'webAppLinux'
+    WebAppName: 'nodes1122'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|18-lts'
+    StartupCommand: 'pm2 start server.js'
 
 - task: PublishBuildArtifacts@1
   inputs:
