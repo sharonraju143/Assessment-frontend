@@ -45,13 +45,11 @@ steps:
       pwd 
       ls
 
-- task: AzureRmWebAppDeployment@4
+- task: AzureWebApp@1
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'appservice'
     appType: 'webAppLinux'
-    WebAppName: 'nodes1122'
-    packageForLinux: '$(build.artifactStagingDirectory)/drop/$(Build.BuildId).zip'
-    RuntimeStack: 'NODE|18-lts'
-    StartupCommand: 'npm start'
-  displayName: 'Deploy to Azure WebApp'
+    appName: 'nodes1122'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    runtimeStack: 'NODE|18-lts'
+    startUpCommand: 'npm start'
