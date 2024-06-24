@@ -20,8 +20,6 @@ steps:
   inputs:
     contents: |
       dist/mongo-dbangular13/**
-      package.json
-      # If there are any other files or folders needed, add them here.
     targetFolder: '$(build.artifactStagingDirectory)'
   displayName: 'Copy files to artifact staging directory'
 
