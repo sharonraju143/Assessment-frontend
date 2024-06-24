@@ -50,6 +50,6 @@ steps:
     azureSubscription: 'appservice'
     appType: 'webAppLinux'
     appName: 'nodes1122'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(build.artifactStagingDirectory)/**/*.zip'
     runtimeStack: 'NODE|18-lts'
     startUpCommand: 'npm start'
